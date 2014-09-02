@@ -44,10 +44,9 @@ var randomWord = function(length) {
 	var randNum = Math.floor((Math.random() * 8) + 1); 
 
 	var query = randomWord(randNum); 
-	var URL1 = "http://www.bing.com/search?q=";
-	var URL2 = "&go=Submit&qs=n&form=QBLH&pq=twenty&sc=8-4&sp=-1&sk=&cvid=82663f44340348639c71f80a3d80f7b7"; 
+	var URL = "http://www.bing.com/search?q=";
 
-	window.location.replace(URL1 + query + URL2 + "&numSearches=" + numSearches + "_self"); 
+	window.location.replace(URL + query + "&numSearches=" + numSearches); 
     }
 
     // Function to get the number of searches from the URL. 
