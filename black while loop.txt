@@ -1,0 +1,72 @@
+var hand = function(numHand){
+    this.numHand = numHand;
+    alert("This is hand number "+numHand+".");
+
+
+var deal = function(){
+    var card = Math.floor(Math.random()*53);
+    return card;
+};
+
+var card1 = deal();
+var card2 = deal();
+
+var getValue = function(card){
+    if (card % 13 === 0 || card % 13 >=11){
+        return 10; 
+    }
+    else if (card % 13 === 1){
+        return 11;
+    }
+    else {
+        return card % 13;
+    }
+};
+
+var getSuit = function(card){
+    if (card >= 1 && card <= 13){
+        return "spades";
+    }
+    else if (card>= 14 && card <=26){
+        return "clubs";
+    }
+    else if(card >=27 && card <= 39){
+        return "hearts";
+    }
+    else if(card >=40 && card<=52){
+        return "diamonds";
+    }
+};
+
+var score = function(){
+    return getValue(card1) + getValue(card2);
+};
+
+alert("You were dealt a "+getValue(card1)+" of "+getSuit(card1)+ 
+" and a "+getValue(card2)+ " of "+getSuit(card2)+" for a score of "+score()+".");
+
+var hitOrStay = function(){
+
+var decision = confirm("Would you like to hit?");
+    while (decision){
+        var card3 = deal();
+        var newScore = getValue(card3) + score();
+        alert("Your new score is "+newScore);
+	
+	if(newScore > 21) 
+		alert("Sorry you busted."); 
+		var decision = false; 
+	
+        
+        var decision=false;
+    }
+  
+	
+
+};
+
+hitOrStay();
+
+};
+
+hand(1);

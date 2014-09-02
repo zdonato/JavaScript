@@ -1,0 +1,67 @@
+var poker = function(){
+            var deal = function(){
+                var card = Math.floor(Math.random()*53);
+                return card;            //function makes a random card
+            };
+           
+            var getValue = function(card){ //function finds actual # value of card
+                if (card % 13 === 0 || card % 13 >=11){
+                    return 10;
+                }
+                else if (card % 13 === 1){
+                    return 11; 
+                }
+                else {
+                    return card % 13; 
+                }
+            };
+        
+            
+            var getSuit = function (card){ // function finds suit of card
+                if (card >=0 && card <= 13  ){
+                    return "spades";
+                }
+                else if (card>= 14 && card <= 26){
+                    return "clubs";
+                }
+                else if (card>= 27 && card <= 39){
+                    return "hearts";
+                }
+                else if (card>= 40 && card <=52){
+                    return "diamonds";
+                }
+            };
+            
+            var space = function(){ // Skips a line to make it easier to read
+                console.log(" ");
+            };
+            
+            for (i=0; i<5; i++){ // deals out 5 cards to the player 
+                var card1 = getValue(deal());
+                console.log("You were dealt a: "+card1+ " of "+ getSuit(deal())+"."); 
+            }
+            
+            space();
+            
+            // determines which cards to throw away. Primitive :/ 
+            var rid = prompt("Which cards would you like to throw away? (Separate with a comma.)");
+            console.log("You got rid of "+ rid+".");
+            
+            space(); 
+            
+            //determines amount of cards to draw. 
+            var need = prompt("How many cards would you like to draw?");
+            
+            //determines which cards you would like to keep to add to output.
+            var keep = prompt("Which card(s) would you like to keep?");
+            console.log("You kept: "+keep+".");
+            
+            for (i=0; i < need; i++){
+                var card2 = getValue(deal()); 
+                console.log("Your new card is a: " +card2+ " of "+getSuit(deal())+".");
+            }
+            
+            
+};
+
+poker();
